@@ -1,0 +1,8 @@
+.Ball{
+    display: inline-block;
+    padding: 0 2em 0 2em;
+    background-color: #e76f51;
+    margin: 1em;
+    color: white;
+    border-radius: 50%;
+}

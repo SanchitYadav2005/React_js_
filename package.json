@@ -1,0 +1,19 @@
+{
+  "name": "react_js_course",
+  "version": "1.0.0",
+  "description": "Course form udemy to upgrade my skills.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SanchitYadav2005/React_JS_Course.git"
+  },
+  "author": "Sanchit Yadav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SanchitYadav2005/React_JS_Course/issues"
+  },
+  "homepage": "https://github.com/SanchitYadav2005/React_JS_Course#readme"
+}
