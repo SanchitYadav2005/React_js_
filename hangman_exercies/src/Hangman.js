@@ -13,16 +13,20 @@ class Hangman extends Component {
   /** by default, allow 6 guesses and use provided gallows images. */
   static defaultProps = {
     maxWrong: 6,
+    // added the images to display the hangman.
     images: [img0, img1, img2, img3, img4, img5, img6]
   };
 
   constructor(props) {
     super(props);
+    //A JavaScript Set is a collection of unique values.
+  // Each value can only occur once in a Set.
+  // A Set can hold any value of any data type.
     this.state = { nWrong: 0, guessed: new Set(), answer: randomWord() };
     this.handleGuess = this.handleGuess.bind(this);
     this.reset = this.reset.bind(this)
   }
-
+  // reset button to reset the whole game. Basically uses this.setState to reset all the states.
   reset(){
     this.setState({
       nWrong: 0, 
@@ -35,15 +39,20 @@ class Hangman extends Component {
   */
   guessedWord() {
     return this.state.answer
+      //The split() Method
+      // split() splits a string into an array of substrings, and returns the array:
+      //ex:
+      // How,are,you,doing,today?
       .split("")
       .map(ltr => (this.state.guessed.has(ltr) ? ltr : "_"));
   }
 
-  /** handleGuest: handle a guessed letter:
+  /** handleGuess: handle a guessed letter:
     - add to guessed letters
     - if not in answer, increase number-wrong guesses
   */
   handleGuess(evt) {
+    // the statement let ltr = evt.target.value is assigning that current value to the variable ltr using the let keyword, which declares a block-scoped variable.
     let ltr = evt.target.value;
     this.setState(st => ({
       guessed: st.guessed.add(ltr),
