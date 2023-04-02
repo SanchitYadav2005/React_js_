@@ -96,6 +96,7 @@ class Board extends Component {
     // make table board
 
     // TODO
+    return <h1>board</h1>
   }
 }
 
