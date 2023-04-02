@@ -30,10 +30,18 @@ import './Board.css';
  **/
 
 class Board extends Component {
+  static defaultProps = {
+    nrows: 5,
+    ncols: 5,
+    chanceLightStartOn: 0.25
+  };
 
   constructor(props) {
     super(props);
-
+    this.state={
+      hasWon: false,
+      board: this.createBoard()
+    }
     // TODO: set initial state
   }
 
@@ -42,6 +50,13 @@ class Board extends Component {
   createBoard() {
     let board = [];
     // TODO: create array-of-arrays of true/false values
+    for(let y=0; y<this.props.nrows; y++){
+      let row = [];
+      for(let x = 0; x < this.props.ncols; x++){
+        row.push(Math.random() < this.props.chanceLightStartOn)
+      }
+      board.push(row)
+    }
     return board
   }
 
