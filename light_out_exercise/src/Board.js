@@ -38,9 +38,9 @@ class Board extends Component {
 
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       hasWon: false,
-      board: this.createBoard()
+      board: this.createBoard(),
     }
     // TODO: set initial state
   }
@@ -81,7 +81,7 @@ class Board extends Component {
     // win when every cell is turned off
     // TODO: determine is the game has been won
 
-    this.setState({board, hasWon});
+    this.setState({board, hasWon})
   }
 
 
