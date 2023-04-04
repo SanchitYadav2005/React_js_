@@ -67,7 +67,6 @@ class Board extends Component {
 
     let {ncols, nrows} = this.props;
     let board = this.state.board;
-    // let hasWon = this.state.hasWon;
     let [y, x] = coord.split("-").map(Number);
 
 
@@ -88,15 +87,17 @@ class Board extends Component {
 
     // win when every cell is turned off
     // TODO: determine is the game has been won
-
-    this.setState({board})
+    let hasWon = board.every(row => row.every(cell => !cell));
+    this.setState({board:board, hasWon: hasWon})
   }
 
 
   /** Render game board or winning message. */
 
   render() {
-
+    if(this.state.hasWon){
+      return <h1>You won!</h1>
+    }
     // if the game is won, just show a winning msg & render nothing else
 
     // TODO
