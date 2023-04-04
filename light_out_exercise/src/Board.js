@@ -42,7 +42,7 @@ class Board extends Component {
     // TODO: set initial state
     this.state = {
       // hasWon: false,
-      board: this.createBoard()
+      board: this.createBoard(),
     };
   }
 
@@ -95,9 +95,22 @@ class Board extends Component {
     // TODO
 
     // make table board
-
+    let tableBoard = [];
+    for(let y = 0; y < this.props.ncols; y++){
+      let row = [];
+      for(let x = 0; x < this.props.nrows; x++){
+        row.push(<Cell isLit = {this.state.board[y][x]}/>)
+      }
+      tableBoard.push(<tr>{row}</tr>)
+    }
     // TODO
-    return <h1>board</h1>
+    return (
+      <table className="Board">
+        <tbody>
+          {tableBoard}
+        </tbody>
+      </table>
+    )
   }
 }
 
