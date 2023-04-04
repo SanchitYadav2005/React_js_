@@ -41,6 +41,7 @@ class Board extends Component {
     
     // TODO: set initial state
     this.state = {
+      hasWon: false,
       board: this.createBoard(),
     };
   }
@@ -63,8 +64,10 @@ class Board extends Component {
   /** handle changing a cell: update board & determine if winner */
 
   flipCellsAround(coord) {
+
     let {ncols, nrows} = this.props;
     let board = this.state.board;
+    // let hasWon = this.state.hasWon;
     let [y, x] = coord.split("-").map(Number);
 
 
@@ -77,6 +80,11 @@ class Board extends Component {
     }
 
     // TODO: flip this cell and the cells around it
+    flipCell(y, x); // Flip initial cell
+    flipCell(y, x - 1); // Flip left
+    flipCell(y, x + 1); // Flip right
+    flipCell(y - 1, x); // Flip above
+    flipCell(y + 1, x); // Flip below
 
     // win when every cell is turned off
     // TODO: determine is the game has been won
@@ -99,7 +107,11 @@ class Board extends Component {
       let row = [];
       for(let x = 0; x < this.props.nrows; x++){
         let coord = `${y}-${x}`
-        row.push(<Cell key={coord} isLit = {this.state.board[y][x]}/>)
+        row.push(<Cell 
+            key={coord} 
+            isLit = {this.state.board[y][x]}
+            flipCellsAroundMe={()=> this.flipCellsAround(coord)}
+          />)
       }
       tableBoard.push(<tr>{row}</tr>)
     }
