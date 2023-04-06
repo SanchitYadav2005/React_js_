@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import ShoppingListForm from './ShopingListForm';
+import { v4 as uuid } from 'uuid';
 
 class ShopingList extends Component{
     constructor(props){
         super(props);
         this.state = {
             iteams:[
-                {name: "tomato", qty: "3"},
-                {name: "apple", qty: "5"}
+                {name: "tomato", qty: "3", id:uuid()},
+                {name: "apple", qty: "5", id:uuid()}
             ]
         }
         this.addIteams = this.addIteams.bind(this)
