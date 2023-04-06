@@ -7,12 +7,23 @@ class ShoppingListForm extends Component{
             name: "",
             qty: ""
         }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+    handleSubmit(evt){
+        evt.preventDefault();
+        this.props.addIteams(this.state);
+    }
+    handleChange(evt){
+        this.setState({
+            [evt.target.name]: evt.target.value
+        })
     }
     render(){
         return(
             <div>
                 <h1>Shoping list form</h1>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <label htmlFor="name">Name: </label>
                     <input
                         id="name"

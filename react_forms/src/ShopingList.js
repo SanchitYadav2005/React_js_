@@ -8,9 +8,14 @@ class ShopingList extends Component{
             iteams:[
                 {name: "tomato", qty: "3"},
                 {name: "apple", qty: "5"}
-            ],
-            // this.renderItems = this.renderItems.bind(this)
+            ]
         }
+        this.addIteams = this.addIteams.bind(this)
+    }
+    addIteams(iteams){
+        this.setState(oldState => ({
+            iteams: [...oldState.iteams, iteams]
+        }))
     }
     renderIteams() {
         return (
@@ -28,7 +33,7 @@ class ShopingList extends Component{
           <div>
             <h1>Shopping List</h1>
             {this.renderIteams()}
-            <ShoppingListForm/>
+            <ShoppingListForm addIteams={this.addIteams}/>
           </div>
         );
       }
