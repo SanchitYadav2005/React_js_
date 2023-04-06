@@ -13,6 +13,7 @@ class ShoppingListForm extends Component{
     handleSubmit(evt){
         evt.preventDefault();
         this.props.addIteams(this.state);
+        this.setState({name: "", qty: ""})
     }
     handleChange(evt){
         this.setState({
