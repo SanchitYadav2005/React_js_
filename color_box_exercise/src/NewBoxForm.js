@@ -8,7 +8,8 @@ class NewBoxForm extends Component{
             weight: '',
             color: ''
         }
-        this.handleChange = this.handleChange.bind()
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
     handleChange(evt){
         this.setState({

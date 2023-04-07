@@ -5,9 +5,7 @@ import NewBoxForm from './NewBoxForm';
 class Boxlist extends Component{
     constructor(props){
         super(props);
-        this.state ={
-            boxes: [{width: 10, height: 15, color: "orange"}]
-        }
+        this.state ={boxes:[]}
         this.create = this.create.bind(this)
     }
     create(newBox){
