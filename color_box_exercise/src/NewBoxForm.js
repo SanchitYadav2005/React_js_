@@ -15,10 +15,14 @@ class NewBoxForm extends Component{
             [evt.target.name] : evt.target.value
         })
     }
+    handleSubmit(e){
+        e.preventDefault();
+        this.props.createBox(this.state)
+    }
     render(){
         return(
             <div>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <label>Height</label>
                     <input
                         value={this.state.height}
