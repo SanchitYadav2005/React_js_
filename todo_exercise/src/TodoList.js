@@ -11,6 +11,7 @@ class TodoList extends Component{
         }
         this.create = this.create.bind(this)
         this.remove = this.remove.bind(this)
+        this.update = this.update.bind(this)
     }
     create(newTodos){
         this.setState({
@@ -22,13 +23,25 @@ class TodoList extends Component{
             todos: this.state.todos.filter(t => t.id !== id)
         })
     }
+    update(id, updatedTask){
+        const updatedTodos = this.state.todos.map(todo => {
+            if(todo.id === id){
+                return {...todo, task: updatedTask}
+            }else{
+                return todo;
+            }
+        })
+        this.setState({todos: updatedTodos})
+    }
     render(){
         const todos = this.state.todos.map(todo=>(
            <Todo 
-           key={todo.id} 
-           task={todo.task} 
-           id={todo.id} 
-           removeTodo={this.remove}/>
+                key={todo.id} 
+                task={todo.task} 
+                id={todo.id} 
+                removeTodo={this.remove}
+                updateTodo = {this.update}
+           />
         ))
         return(
             <div>
