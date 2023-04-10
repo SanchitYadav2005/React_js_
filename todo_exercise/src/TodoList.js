@@ -7,7 +7,7 @@ class TodoList extends Component{
     constructor(props){
         super(props);
         this.state = {
-            work: ""
+            todos: []
         }
         this.create = this.create.bind(this)
     }
