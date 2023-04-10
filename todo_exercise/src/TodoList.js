@@ -11,19 +11,19 @@ class TodoList extends Component{
         }
         this.create = this.create.bind(this)
     }
-    create(newWork){
+    create(newTodos){
         this.setState({
-            work: [...this.state.work, newWork]
+            todos: [...this.state.todos, newTodos]
         })
     }
     render(){
         const todos = this.state.todos.map(todo=>(
-            <Todo task={todo.task}/>
+           <Todo task={todo.task}/>
         ))
         return(
             <div>
                 <h1>TodoList is live</h1>
-                <TodoForm addWork={this.create}/>
+                <TodoForm createTodo={this.create}/>
                 <ul>
                     {todos}
                 </ul>

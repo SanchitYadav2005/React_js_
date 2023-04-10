@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 class TodoForm extends Component{
     constructor(props){
         super(props);
-        this.state = {work: ""}
+        this.state = {task: ""}
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -15,19 +15,20 @@ class TodoForm extends Component{
     }
     handleSubmit(e){
         e.preventDefault();
-        const newWork = [...this.state.work]
-        this.props.addWork(newWork);
+        this.props.createTodo(this.state);
         this.setState({
-            work: ""
+            task: ""
         })
     }
     render(){
         return(
             <form onSubmit={this.handleSubmit}>
                 <input
-                    value={this.state.work}
-                    name='work'
+                    value={this.state.task}
+                    name='task'
                     onChange={this.handleChange}
+                    placeholder='new todo'
+                    id='task'
                 />
                 <button>Submit</button>
             </form>
