@@ -5,17 +5,27 @@ import './ZenQuotes.css'
 class ZenQuote extends Component {
     constructor(props) {
         super(props);
-        this.state = { quote: "" }
+        this.state = { quote: "", isLoaded: false }
     }
     componentDidMount() {
         axios.get("https://api.github.com/zen").then(response => {
-            this.setState({ quote: response.data })
+            setInterval(
+                function() {
+                this.setState({quote: response.data, isLoaded: true})
+            }.bind(this),
+            3000);
         })
     }
     render() {
         return (
             <div>
-                <div class="lds-default">
+                {this.state.isLoaded ? (
+                    <div>
+                    Alwasys remember ....
+                    <h1>{this.state.quote}</h1>
+                   </div>
+                ) : (
+                    <div class="lds-default">
                     <div></div>
                     <div></div>
                     <div></div>
@@ -26,11 +36,11 @@ class ZenQuote extends Component {
                     <div></div>
                     <div></div>
                 </div>
-                Alwasys remember ....
-                 <h1>{this.state.quote}</h1>
+                )
+            }
             </div>
         )
     }
 }
 
-                export default ZenQuote;
+export default ZenQuote;
