@@ -19,7 +19,10 @@ class JokeList extends Component {
             let res = await axios.get("https://icanhazdadjoke.com/", {
                 headers: { Accept: 'application/json' }
             });
-            jokes.push(res.data.joke)
+            jokes.push({
+                joke: res.data.joke, 
+                votes: 0
+            })
         }
         this.setState({ jokes: jokes })
     }
@@ -39,7 +42,7 @@ class JokeList extends Component {
 
                 <div className='JokeList-jokes'>
                     {this.state.jokes.map(joke => (
-                        <div>{joke}</div>
+                        <div>{joke.joke} - {joke.votes}</div>
                     ))}
                 </div>
             </div>
