@@ -27,6 +27,7 @@ class JokeList extends Component {
         }
         this.setState({ jokes: jokes })
     }
+    handleVote(id, delta){}
     render() {
         return (
             <div className='JokeList'>
