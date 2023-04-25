@@ -13,6 +13,9 @@ class Joke extends Component{
                 <div className='Joke-text'>
                     {this.props.text}
                 </div>
+                <div className='Joke-smiley'>
+                    <i className='em em-rolling_on_the_floor_laughing'/>
+                </div>
             </div>
         )
     }
