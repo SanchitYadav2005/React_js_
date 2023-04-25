@@ -17,3 +17,5 @@ class Joke extends Component{
         )
     }
 }
+
+export default Joke;
