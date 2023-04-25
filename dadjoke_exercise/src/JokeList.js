@@ -12,10 +12,13 @@ class JokeList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            jokes: []
+            jokes: JSON.parse(window.localStorage.getItem("jokes") || "[]")
         }
     }
-    async componentDidMount() {
+    componentDidMount() {
+        if(this.state.jokes.length === 0) this.getJokes()    
+    }
+    async getJokes(){
         let jokes = [];
         while (jokes.length < this.props.jokesToGet) {
             let res = await axios.get("https://icanhazdadjoke.com/", {
@@ -28,6 +31,11 @@ class JokeList extends Component {
             })
         }
         this.setState({ jokes: jokes })
+        //The JSON.stringify() static method converts a JavaScript value to a JSON string
+        // window.localStorage is a local storage.
+        // we are using it to store the jokes in local storage.
+        //The localStorage object stores data with no expiration date. The data is not deleted when the browser is closed, and are available for future sessions.
+        window.localStorage.setItem("jokes", JSON.stringify(this.state.jokes))
     }
     handleVote(id, delta){
         this.setState(st=>({
