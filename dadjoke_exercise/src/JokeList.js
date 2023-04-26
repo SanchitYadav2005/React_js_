@@ -15,8 +15,7 @@ class JokeList extends Component {
             // here we are parsing the data that we have in our local storage.
             jokes: JSON.parse(window.localStorage.getItem("jokes") || "[]"),
             loading: false
-        },
-        this.seenJokes = new Set(this.state.jokes.map(j => j.text));
+        }
         this.handleClick = this.handleClick.bind(this);
     }
     componentDidMount() {
@@ -28,15 +27,11 @@ class JokeList extends Component {
             let res = await axios.get("https://icanhazdadjoke.com/", {
                 headers: { Accept: 'application/json' }
             });
-            let newJoke = res.data.joke;
-            if(!this.seenJokes.has(newJoke)){
-                jokes.push({
-                    id:uuid(),
-                    text: res.data.joke, 
-                    votes: 0
-                })
-            }
-            
+            jokes.push({
+                id:uuid(),
+                text: res.data.joke, 
+                votes: 0
+            })
         }
         this.setState(st=>({
             loading: false,
@@ -80,7 +75,7 @@ class JokeList extends Component {
                         src="https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg"
                         alt="Crying Laughing Emoji"
                     />
-                    <button className='JokeList-getMore' onClick={this.handleClick}>New Jokes</button>
+                    <button className='JokeList-getmore' onClick={this.handleClick}>New Jokes</button>
                 </div>
 
                 <div className='JokeList-jokes'>
