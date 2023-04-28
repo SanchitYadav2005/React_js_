@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/SanchitYadav2005/React_JS_Course/issues"
   },
-  "homepage": "https://github.com/SanchitYadav2005/React_JS_Course#readme"
+  "homepage": "https://github.com/SanchitYadav2005/React_JS_Course#readme",
+  "dependencies": {
+    "react-router-dom": "^6.10.0"
+  }
 }
