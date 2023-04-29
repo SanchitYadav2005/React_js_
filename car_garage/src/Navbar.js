@@ -5,18 +5,18 @@ class Navbar extends Component{
     render() {
         return (
              <div>
-                <NavLink exact acitveClassName="active-navLink" to="/">
+                <NavLink className="active-link" exact to="/">
                     Home
                 </NavLink>
-                <NavLink exact acitveClassName="active-navLink" to="/wrangler">
+                {/* <NavLink exact  to="/wrangler">
                     Wrangler
-                </NavLink>
-                <NavLink exact acitveClassName="active-navLink" to="/thar">
+                </NavLink> */}
+                <NavLink className="active-link" exact to="/thar">
                     Thar
                 </NavLink>
-                <NavLink exact acitveClassName="active-navLink" to="/defender">
+                {/* <NavLink exact  to="/defender">
                     Defender
-                </NavLink>
+                </NavLink> */}
              </div>
         );
     }

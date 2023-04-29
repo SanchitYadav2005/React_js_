@@ -3,6 +3,8 @@ import Home from './Home';
 import './App.css';
 import Navbar from './Navbar';
 import Thar from './Thar';
+import Wrangler from './Wrangler';
+import Defender from './Defender'
 
 
 function App() {
@@ -10,8 +12,11 @@ function App() {
     <div className="App">
       <Navbar/>
       <Routes>
-        <Route exact path='/' render={() => <Home />} />
-        <Route exact path='/Thar' render={() => <Thar />} />
+        {/* in version 6 of react-router-dom Component is replaced by element */}
+        <Route exact path='/' element={<Home/>} />
+        <Route exact path='/wrangler' element={<Wrangler/>} />
+        <Route exact path='/thar' element={<Thar/>} />
+        <Route exact path='/defender' element={<Defender/>} />
       </Routes>
     </div>
   );
