@@ -1,0 +1,16 @@
+.Car-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.Car{
+    margin: 2em;
+    border-radius: 2em;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.Car:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    opacity: 0.7;
+    
+}

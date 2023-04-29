@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Cars.css';
 
 
 class Thar extends Component{
@@ -15,10 +16,10 @@ class Thar extends Component{
     }
     render() {
         let img = this.state.srcs.map(s => (
-            <img src={s} alt="new image"/>
+            <img src={s} className='Car' alt="new image"/>
         ))
         return (
-             <div>
+             <div className='Car-container'>
                 {img}
              </div>
         );
