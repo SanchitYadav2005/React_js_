@@ -8,15 +8,15 @@ class Navbar extends Component{
                 <NavLink className="active-link" exact to="/">
                     Home
                 </NavLink>
-                {/* <NavLink exact  to="/wrangler">
+                <NavLink exact  to="/wrangler">
                     Wrangler
-                </NavLink> */}
+                </NavLink>
                 <NavLink className="active-link" exact to="/thar">
                     Thar
                 </NavLink>
-                {/* <NavLink exact  to="/defender">
+                <NavLink exact  to="/defender">
                     Defender
-                </NavLink> */}
+                </NavLink>
              </div>
         );
     }
