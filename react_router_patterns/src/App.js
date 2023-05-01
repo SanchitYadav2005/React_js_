@@ -1,4 +1,5 @@
 import Fruit from './Fruits';
+import Foodsearch from './Foodsearch';
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
 
@@ -9,8 +10,13 @@ function App() {
       <Routes>
         <Route 
           exact 
-          path='/fruit/:name'
+          path='/food/:name'
           element={<Fruit/>}
+        />
+        <Route
+          exact 
+          path='/'
+          element={<Foodsearch/>}
         />
       </Routes>
     </div>
