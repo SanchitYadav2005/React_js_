@@ -1,10 +1,12 @@
-import { Component } from 'react';
+import { Component} from 'react';
 import {Routes, Route} from 'react-router-dom';
 import './App.css';
 import brett from './imgs/brett.jpg';
 import caesar from './imgs/caesar.jpg';
 import dom from './imgs/dom.jpg'
 import Doglist from './components/Doglist';
+import Dogsdetail from './components/Dogsdetail';
+import { useParams } from 'react-router-dom';
 
 class App extends Component {
   static defaultProps = {
@@ -42,6 +44,13 @@ class App extends Component {
     ]
   };
   render() {
+    const getDog = props => {
+      let {name} = useParams;
+      let currentDog = this.props.dogs.find(
+        dog => dog.name.toLowerCase() === name.toLowerCase()
+      );
+      return <Dogsdetail {...props} dog={currentDog} />;
+    };
     return (
 
       <div className="App">
@@ -50,6 +59,11 @@ class App extends Component {
              exact 
              path='/dogs'
              element={<Doglist dog={this.props.dogs}/>}
+          />
+          <Route
+            exact
+            path='/dogs/:name'
+            Component={getDog}
           />
         </Routes>
       </div>
