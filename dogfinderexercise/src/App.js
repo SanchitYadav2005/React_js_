@@ -1,8 +1,10 @@
 import { Component } from 'react';
+import {Routes, Route} from 'react-router-dom';
 import './App.css';
 import brett from './imgs/brett.jpg';
 import caesar from './imgs/caesar.jpg';
 import dom from './imgs/dom.jpg'
+import Doglist from './components/Doglist';
 
 class App extends Component {
   static defaultProps = {
@@ -43,7 +45,13 @@ class App extends Component {
     return (
 
       <div className="App">
-        <h1 className='display-1'>Dog App</h1>
+        <Routes>
+          <Route
+             exact 
+             path='/dogs'
+             element={<Doglist dog={this.props.dogs}/>}
+          />
+        </Routes>
       </div>
     );
   }
