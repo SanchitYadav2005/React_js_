@@ -1,48 +1,52 @@
-import logo from './logo.svg';
+import { Component } from 'react';
 import './App.css';
+import brett from './imgs/brett.jpg';
+import caesar from './imgs/caesar.jpg';
+import dom from './imgs/dom.jpg'
 
-function App() {
-  return (
-    <div>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"/></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-      <h1 className='display-1'>Dog App</h1>
-    </div>
-  );
+class App extends Component {
+  static defaultProps = {
+    dogs: [
+      {
+        name: "Brett",
+        age: 5,
+        src: brett,
+        facts: [
+          "Brett loves eating popcorn.",
+          "Brett is a terrible guard dog.",
+          "Brett wants to cuddle with you!"
+        ]
+      },
+      {
+        name: "Caesar",
+        age: 3,
+        src: caesar,
+        facts: [
+          "Caesar has soooo much energy!",
+          "Caesar is highly intelligent.",
+          "Caesar loves people more than dogs."
+        ]
+      },
+      {
+        name: "Dom",
+        age: 4,
+        src: dom,
+        facts: [
+          "Dom is not the brightest dog",
+          "Dom does not like walks or exercise.",
+          "Dom loves eating food."
+        ]
+      }
+    ]
+  };
+  render() {
+    return (
+
+      <div className="App">
+        <h1 className='display-1'>Dog App</h1>
+      </div>
+    );
+  }
 }
 
 export default App;
