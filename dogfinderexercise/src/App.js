@@ -43,16 +43,11 @@ class App extends Component {
       }
     ]
   };
+  // getName = () => {
+  //   const { name } = useParams();
+  // }
   render() {
-    const getDog = props => {
-      let {name} = useParams;
-      let currentDog = this.props.dogs.find(
-        dog => dog.name.toLowerCase() === name.toLowerCase()
-      );
-      return <Dogsdetail {...props} dog={currentDog} />;
-    };
     return (
-
       <div className="App">
         <Routes>
           <Route
@@ -63,7 +58,7 @@ class App extends Component {
           <Route
             exact
             path='/dogs/:name'
-            Component={getDog}
+            element={<Dogsdetail dog={this.props.dogs}/>}
           />
         </Routes>
       </div>
