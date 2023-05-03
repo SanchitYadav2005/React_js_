@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './Doglist.css'
 class Doglist extends Component{
     render() {
         return (
@@ -8,7 +8,7 @@ class Doglist extends Component{
                 <div className='container'>
                     <div className='row'>
                         {this.props.dog.map(d => (
-                            <div className='col-4 text-center' key={d.name}>
+                            <div className='Dog col-md-6 col-lg-4 text-center' key={d.name}>
                                 <img src={d.src} alt={d.name}/>
                                 <h3>{d.name}</h3>
                             </div>
