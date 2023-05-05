@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ColorBox.css';
+// this is a component that we can use to make copy to clip board functionality.
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 class ColorBox extends Component{
@@ -9,9 +10,12 @@ class ColorBox extends Component{
         this.changeCopyState = this.changeCopyState.bind(this)
     }
     changeCopyState(){
+        // intially setting up the state to ture and after some time setting it back to false
+        // just to remove the overlay animation (if we don't set the state back to false it will always remain to ture.)
         this.setState({copied: true} , ()=>{setTimeout(() => {
             this.setState({copied: false})
         }, 1500);})
+        // in my css overlay is not working so I made a alert to diplay whenever someone copies the color.
         alert(`color ${this.props.background} is copied`)
     }
     render() {
