@@ -12,6 +12,7 @@ class ColorBox extends Component{
         this.setState({copied: true} , ()=>{setTimeout(() => {
             this.setState({copied: false})
         }, 1500);})
+        alert(`color ${this.props.background} is copied`)
     }
     render() {
         const {name, background} = this.props;
