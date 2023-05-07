@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import ColorBox from './ColorBox';
-// this is the css file of that slider component.
-import 'rc-slider/assets/index.css';
+import Navbar from './Navbar';
 import './Palette.css';
-// this is a react component that we can use to create slider preaty easily .
-import Slider from 'rc-slider';
+
 
 
 class Palette extends Component {
@@ -28,16 +26,7 @@ class Palette extends Component {
         ))
         return (
             <div className='Palette'>
-                <div className='slider'>
-                    <Slider
-                        defaultValue={level}
-                        min={100}
-                        max={900}
-                        step={100}
-                        onChange={this.changeLevel}
-                    />
-                </div>
-                {/* navbar goes here */}
+                <Navbar level={level} changeLevel={this.changeLevel}/>
                 <div className='Palette-colors'>{colorBoxes}</div>
                 {/* footer goes here */}
             </div>
