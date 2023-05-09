@@ -15,18 +15,22 @@ import './Navbar.css'
 class Navbar extends Component {
     constructor(props){
         super(props);
-        this.state = { format: "hex"}
+        this.state = { format: "hex", open:false}
         this.handleChange = this.handleChange.bind(this)
+        this.closeSnackbar = this.closeSnackbar.bind(this)
     }
     handleChange(e){
-        this.setState({format: e.target.value})
+        this.setState({format: e.target.value, open: true})
         this.props.handleChange(e.target.value)
+    }
+    closeSnackbar(){
+        this.setState({open:false})
     }
     render() {
 
         // getting these two as props from the palette component .
         const { level, changeLevel} = this.props;
-        const {format}  = this.state;
+        const {format, open}  = this.state;
         return (
             <header className='Navbar'>
                 <div className='logo'>
@@ -51,6 +55,22 @@ class Navbar extends Component {
                         <MenuItem value="rgba">RGBA- rgb(255,255,255,0.2)</MenuItem>
                     </Select>
                 </div>
+                <Snackbar 
+                    anchorOrigin={{vertical: "bottom", horizontal: "left" }} 
+                    open={open}
+                    autoHideDuration={3000}
+                    message={<span className='message-id'>Format Changed!</span>}
+                    ContentProps={{
+                        "aria-describedby" : "message-id"
+                    }}
+                    onClose={this.closeSnackbar}
+                    action={[
+                        <IconButton onClick={this.closeSnackbar} color='inherit' key="close" aria-describedby='close'>
+                            <CloseIcon/>
+                        </IconButton>
+                    ]}
+                />
+
             </header>
         );
     }

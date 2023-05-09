@@ -9,7 +9,7 @@ class Palette extends Component {
     constructor(props) {
         super(props)
         // here we are defining a starting level of colors.
-        this.state = { level: 500 }
+        this.state = { level: 500, format: "hex" }
         this.changeLevel = this.changeLevel.bind(this)
         this.changeFormat = this.changeFormat.bind(this)
     }
@@ -18,15 +18,15 @@ class Palette extends Component {
         this.setState({ level })
     }
     changeFormat(val){
-        alert(val)
+        this.setState({format: val})
     }
     render() {
         // just refactored this.props.palette.colors and this.state.level.
         const { colors } = this.props.palette;
-        const { level } = this.state;
+        const { level, format} = this.state;
         // maping over every color and displaying using our ColorBox component
-        const colorBoxes = colors[level].map(color => (
-            <ColorBox background={color.hex} name={color.name} />
+        const colorBoxes = colors[level].map((color) => (
+            <ColorBox background={color[format]} name={color.name} />
         ))
         return (
             <div className='Palette'>
