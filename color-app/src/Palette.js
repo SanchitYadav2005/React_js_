@@ -17,8 +17,8 @@ class Palette extends Component {
         // changing the state accoding to the value on the slider. You will get an error through map if you did'nt decide how many steps you want to go.
         this.setState({ level })
     }
-    changeFormat(e){
-        alert(e.target.value)
+    changeFormat(val){
+        alert(val)
     }
     render() {
         // just refactored this.props.palette.colors and this.state.level.
