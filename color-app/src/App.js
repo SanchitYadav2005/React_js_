@@ -5,7 +5,11 @@ import { Component } from "react";
 import {Route, Switch} from 'react-router-dom';
 
 class App extends Component {
-
+  findPalette(id){
+    return seedColors.find(function(palette){
+      return palette.id === id;
+    })
+  }
   render() {
     return (
       <Switch>
@@ -13,7 +17,7 @@ class App extends Component {
           exact path="/" render={() => <h1>Palette list goes here</h1>}
         />
         <Route
-          exact path="/palette/:id" render={() => <h1>individual palette</h1>}
+          exact path="/palette/:id" render={(routeProps) => <Palette palette={generatePalette(this.findPalette(routeProps.match.params.id))}/>}
         />
       </Switch>
       // // in here we are just getting some sorted of color data that contains the color name, id and other infos about the color
