@@ -18,6 +18,7 @@ class Palette extends Component {
         this.setState({ level })
     }
     changeFormat(val){
+        // this is changingt the value of the format after getting the value from the navbar component.
         this.setState({format: val})
     }
     render() {

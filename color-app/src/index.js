@@ -8,6 +8,8 @@ import {BrowserRouter} from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    {/* added BrowserRouter from react-router-dom */}
+    {/* enables navigation between views from different components in a React application, allows the browser URL to be changed, and keeps the UI in sync with the URL. */}
     <BrowserRouter>
       <App />
     </BrowserRouter>
