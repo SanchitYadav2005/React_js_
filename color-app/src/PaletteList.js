@@ -1,21 +1,59 @@
 import React, { Component } from 'react';
 import MiniPalette from './MiniPalette';
 import { Link } from 'react-router-dom';
+import { withStyles } from '@material-ui/styles';
 
-class PaletteList extends Component{
+const styles = {
+    root:{
+        backgroundColor: "blue",
+        height: "100%",
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: "center"
+    },
+    container:{
+        width: "50%",
+        display: "flex",
+        alignItems: "flex-start",
+        flexDirection: "column",
+        flexWarp: "warp"
+    },
+    nav:{
+        display: "flex",
+        width: "100%",
+        justifyContent: "space-between",
+        color: "white"
+    },
+    palettes:{
+        boxSizing: "border-box",
+        width: "100%",
+        display: "grid",
+        gridTemplateColumns: "repeat(3,30%)",
+        gridGap: "5%"
+    }
+}
+
+class PaletteList extends Component {
     render() {
         // getting palettes as a prop from the seed colors file. And displaying them as link to go details page or individual palettes.
-        const{palettes} = this.props;
+        const { palettes, classes } = this.props;
         return (
-             <div>
-                <h1>React colors</h1>
-                {/* mapping over the palettes to get the detail of individual palette */}
-                {palettes.map(palette => (
-                    <MiniPalette {...palette }/>
-                ))}
-             </div>
+            <div className={classes.root}>
+                <div className={classes.container}>
+                    <nav className={classes.nav}>
+                        <h1>React colors</h1>
+                    </nav>
+                    <div className={classes.palettes}>
+                        {/* mapping over the palettes to get the detail of individual palette */}
+                        {palettes.map(palette => (
+                            <MiniPalette {...palette} />
+                        ))}
+                    </div>
+                </div>
+
+            </div>
         );
     }
 }
 
-export default PaletteList;
+export default withStyles(styles)(PaletteList);
