@@ -33,7 +33,7 @@ const styles = {
         marginLeft: "0.5rem",
         fontSize: "1.5rem"
     },
-    miniColor:{
+    miniColorBox:{
         height: "25%",
         width: "20%",
         display: "inline-block",
@@ -45,13 +45,13 @@ const styles = {
 
 function MiniPalette(props){
     const {classes, paletteName, emoji, colors} = props //we are not using this.props because we are not inside a class.
-    const miniColorBoxes = colors.map(color => {
+    const miniColorBoxes = colors.map(color => (
         <div
-            className={classes.miniColor}
-            styles= {{backgroundColor: color.color}}
-            key={color.name}
+          className={classes.miniColorBox}
+          style={{ backgroundColor: color.color }}
+          key={color.name}
         />
-    })
+      ));
     return(
         <div className={classes.root}>
             <div className={classes.colors}>{miniColorBoxes}</div>
