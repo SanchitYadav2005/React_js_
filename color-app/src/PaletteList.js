@@ -46,7 +46,9 @@ class PaletteList extends Component {
                     <div className={classes.palettes}>
                         {/* mapping over the palettes to get the detail of individual palette */}
                         {palettes.map(palette => (
-                            <MiniPalette {...palette} />
+                            <Link to={`/palette/${palette.id}`}>
+                                <MiniPalette {...palette} />
+                            </Link>
                         ))}
                     </div>
                 </div>
