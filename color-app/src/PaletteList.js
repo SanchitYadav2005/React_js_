@@ -34,6 +34,9 @@ const styles = {
 }
 
 class PaletteList extends Component {
+    goToPalette(id) {
+        this.props.history.push(`/palette/${id}`);
+    }
     render() {
         // getting palettes as a prop from the seed colors file. And displaying them as link to go details page or individual palettes.
         const { palettes, classes } = this.props;
@@ -46,9 +49,7 @@ class PaletteList extends Component {
                     <div className={classes.palettes}>
                         {/* mapping over the palettes to get the detail of individual palette */}
                         {palettes.map(palette => (
-                            <Link to={`/palette/${palette.id}`}>
-                                <MiniPalette {...palette} />
-                            </Link>
+                            <MiniPalette {...palette} handleClick={()=> this.goToPalette(palette.id)}/>
                         ))}
                     </div>
                 </div>
