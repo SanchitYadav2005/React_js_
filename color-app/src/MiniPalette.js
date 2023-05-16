@@ -53,6 +53,7 @@ function MiniPalette(props){
         />
       ));
     return(
+        // and from here we are passing the url to the history prop using the function that is passed as prop.
         <div className={classes.root} onClick={props.handleClick}>
             <div className={classes.colors}>{miniColorBoxes}</div>
                 <h5 className={classes.title}>{paletteName}<span className={classes.emoji}>{emoji}</span>
