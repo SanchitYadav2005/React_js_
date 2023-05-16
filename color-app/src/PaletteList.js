@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import MiniPalette from './MiniPalette';
-import { Link } from 'react-router-dom';
-import { withStyles } from '@material-ui/styles';
+// import { Link } from 'react-router-dom';
 
+// This is a higher-order function that returns a higher-order component used to wrap React components to add styles using the theme. We use this to make themed styles easier to work with.
+import { withStyles } from '@material-ui/styles';
+// like this
 const styles = {
     root:{
         backgroundColor: "blue",
@@ -35,6 +37,9 @@ const styles = {
 
 class PaletteList extends Component {
     goToPalette(id) {
+        // passing the url inside the history prop.
+        // it adds an entry to the browser's session history stack
+        // we are using it like this to add back functionality.
         this.props.history.push(`/palette/${id}`);
     }
     render() {
@@ -49,6 +54,7 @@ class PaletteList extends Component {
                     <div className={classes.palettes}>
                         {/* mapping over the palettes to get the detail of individual palette */}
                         {palettes.map(palette => (
+                            // did not definded goToPalette in the constrructor because here we are passing palette id as a parameter.
                             <MiniPalette {...palette} handleClick={()=> this.goToPalette(palette.id)}/>
                         ))}
                     </div>
