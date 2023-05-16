@@ -7,7 +7,9 @@ import PaletteList from "./PaletteList";
 
 class App extends Component {
   findPalette(id){
+    // in here we are getting the id from generatePalette and finding the searched id in it.
     return seedColors.find(function(palette){
+      // comparing the palettes id to the passed id
       return palette.id === id;
     })
   }
@@ -19,6 +21,7 @@ class App extends Component {
           path="/"
           render={(routeProps) => 
           <PaletteList 
+          // setting routeprops to use history prop further.
           palettes={seedColors} {...routeProps}
           />}
         />
@@ -27,6 +30,7 @@ class App extends Component {
           path="/palette/:id" 
           render={(routeProps) => 
           <Palette 
+          // passing the id to the function to get the clicked palette.
           palette={generatePalette(this.findPalette(routeProps.match.params.id))}
           />}
         />
