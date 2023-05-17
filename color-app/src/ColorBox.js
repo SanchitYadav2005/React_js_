@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import './ColorBox.css';
 // this is a component that we can use to make copy to clip board functionality.
 import {CopyToClipboard} from 'react-copy-to-clipboard';
@@ -31,7 +32,11 @@ class ColorBox extends Component{
                     </div>
                     <button className='copy-button'>Copy</button>
                 </div>
-                <span className='see-more'>More</span>
+                {/* The stopPropagation() method of the Event interface prevents further propagation of the current event in the capturing and bubbling phases. It does not, however, prevent any default behaviors from occurring; for instance, clicks on links are still processed. */}
+                <Link to='/' onClick={e => e.stopPropagation()}>
+                    <span className='see-more'>More</span>
+                </Link>
+                
              </div>
             </CopyToClipboard>
         );
