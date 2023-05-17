@@ -34,6 +34,11 @@ class App extends Component {
           palette={generatePalette(this.findPalette(routeProps.match.params.id))}
           />}
         />
+        <Route
+          exact
+          path="/palette/:paletteId/:colorId"
+          render={() => <h1>colors</h1>}
+        />
       </Switch>
       
       // // in here we are just getting some sorted of color data that contains the color name, id and other infos about the color
