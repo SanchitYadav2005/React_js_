@@ -40,6 +40,7 @@ class App extends Component {
           path="/palette/:paletteId/:colorId"
           render={(routeProps) => 
             <SingleColorPalette 
+            colorId={routeProps.match.params.colorId}
             // passing the id to the function to get the clicked palette.
             palette={generatePalette(this.findPalette(routeProps.match.params.paletteId))}
             />}
