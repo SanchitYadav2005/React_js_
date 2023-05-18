@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import ColorBox from './ColorBox';
+import Navbar from './Navbar';
 
 class SingleColorPalette extends Component{
     constructor(props){
         super(props);
+        this.state ={format: "hex"}
+        this.changeFormat = this.changeFormat.bind(this);
         // here we are creating a instance of the gatherShades to gather the shades of the color and passing the parameter that we are getting as props from the app component and down the line passing it into the function that has the logic to gather the color shades. And we binded the _shades variable to this to make it global, we didn't use state here because we are not changing the color it just the same everytime.
         this._shades = this.gatherShades(this.props.palette, this.props.colorId)
     }
@@ -26,22 +29,31 @@ class SingleColorPalette extends Component{
         // returning it and sliced 1 index because its 50 shade means white in term of the component which we have used to generate our color palettes.
         return shades.slice(1);
     }
+    changeFormat(val){
+        // this is changingt the value of the format after getting the value from the navbar component.
+        this.setState({format: val})
+    }
+
     render() {
+        const {format} = this.state;
         // and here just maped over the shades and displayed them using our colorBox component.
         const colorBoxes = this._shades.map(color => (
             <ColorBox
                 key={color.name}
                 id={color.id}
                 name={color.name}
-                background={color.hex}
+                background={color[format]}
                 // this is for the more link to not to display in the single color palette page
                 showLink={false}
             />
         ))
         return (
-             <div>
+             <div className='Palette'>
+                <Navbar
+                    handleChange={this.changeFormat}
+                />
                 <h1>Single Color Palette</h1>
-                <div>
+                <div className='Palette-colors'>
                     {colorBoxes}
                 </div>
              </div>
