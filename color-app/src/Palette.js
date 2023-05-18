@@ -38,7 +38,7 @@ class Palette extends Component {
         console.log(colors)
         return (
             <div className='Palette'>
-                <Navbar level={level} changeLevel={this.changeLevel} handleChange={this.changeFormat}/>
+                <Navbar level={level} changeLevel={this.changeLevel} handleChange={this.changeFormat} showingAllColors/>
                 <div className='Palette-colors'>{colorBoxes}</div>
                 <footer className='Palette-footer'>
                     {paletteName}

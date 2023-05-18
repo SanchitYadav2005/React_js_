@@ -46,7 +46,8 @@ class Navbar extends Component {
         return (
             <header className='Navbar'>
                 <Link to='/' className='logo'>reactcolorpicker</Link>
-                <div className='slider-container'>
+                {this.props.showingAllColors && (
+                    <div className='slider-container'>
                     <span className='slider-level'>Level : {level}</span>
                     <div className='slider'>
                         <Slider
@@ -59,6 +60,7 @@ class Navbar extends Component {
                         />
                     </div>
                 </div>
+                )}
                 <div className='select-container'>
                     {/* setting the default value to be the format that is passed into the state */}
                     <Select value={format} onChange={this.handleChange}>
