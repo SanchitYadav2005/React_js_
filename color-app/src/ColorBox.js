@@ -20,7 +20,7 @@ class ColorBox extends Component{
         alert(`color ${this.props.background} is copied`)
     }
     render() {
-        const {name, background, moreUrl} = this.props;
+        const {name, background, moreUrl, showLink} = this.props;
         const {copied} = this.state;
         return (
             <CopyToClipboard text={background} onCopy={this.changeCopyState}>
@@ -33,10 +33,11 @@ class ColorBox extends Component{
                     <button className='copy-button'>Copy</button>
                 </div>
                 {/* The stopPropagation() method of the Event interface prevents further propagation of the current event in the capturing and bubbling phases. It does not, however, prevent any default behaviors from occurring; for instance, clicks on links are still processed. */}
-                <Link to={moreUrl} onClick={e => e.stopPropagation()}>
-                    <span className='see-more'>More</span>
-                </Link>
-                
+                {showLink && (
+                    <Link to={moreUrl} onClick={e => e.stopPropagation()}>
+                        <span className='see-more'>More</span>
+                    </Link>
+                )}
              </div>
             </CopyToClipboard>
         );
