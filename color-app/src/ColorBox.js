@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import './ColorBox.css';
 // this is a component that we can use to make copy to clip board functionality.
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import chroma from 'chroma-js';
 
 class ColorBox extends Component{
     constructor(props){
@@ -22,20 +23,22 @@ class ColorBox extends Component{
     render() {
         const {name, background, moreUrl, showLink} = this.props;
         const {copied} = this.state;
+        const isDarkColor = chroma(background).luminance() <= 0.08;
+        const isLightColor = chroma(background).luminance() >= 0.08;
         return (
             <CopyToClipboard text={background} onCopy={this.changeCopyState}>
              <div className='ColorBox' style={{background}}>
                 <div style={{background}} className={`copy-overlay ${copied && "show"}`}/>
                 <div className='copy-container'>
                     <div className='box-content'>
-                        <span>{name}</span>
+                        <span className={isDarkColor && "light-text"}>{name}</span>
                     </div>
-                    <button className='copy-button'>Copy</button>
+                    <button className={`copy-button ${isLightColor && "dark-text"}`}>Copy</button>
                 </div>
                 {/* The stopPropagation() method of the Event interface prevents further propagation of the current event in the capturing and bubbling phases. It does not, however, prevent any default behaviors from occurring; for instance, clicks on links are still processed. */}
                 {showLink && (
                     <Link to={moreUrl} onClick={e => e.stopPropagation()}>
-                        <span className='see-more'>More</span>
+                        <span className={`see-more ${isLightColor && "dark-text"}`}>More</span>
                     </Link>
                 )}
              </div>

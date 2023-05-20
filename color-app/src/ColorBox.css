@@ -21,7 +21,7 @@
     top: 50%;
     left: 50%;
     margin-left: 80px;
-    margin-top: 100px;
+    margin-top: 60px;
     text-align: center;
     outline: none;
     background-color: (255,255,255,0.3);
@@ -52,7 +52,12 @@
     text-transform: uppercase;
     font-size: 12px;
 }
-
+.light-text{
+    color: white;
+}
+.ColorBox .dark-text{
+    color: #000814;
+}
 .see-more{
     background: rgba(255, 255, 255, 0.3);
     position: absolute;
