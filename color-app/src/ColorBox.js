@@ -4,7 +4,61 @@ import './ColorBox.css';
 // this is a component that we can use to make copy to clip board functionality.
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import chroma from 'chroma-js';
+import { withStyles } from '@material-ui/styles';
 
+const styles ={
+    colorBox: {
+        width: "20%",
+        height: "25%",
+        margin: "0 auto",
+        display: "inline-block",
+        position: "relative",
+        cursor: "pointer",
+        "&:hover button":{
+            opacity: 1
+        }
+    },
+    colorName: {
+        color: props =>
+            chroma(props.background).luminance() <= 0.08 ? "white" : "black"
+    },
+    seeMore:{
+        color: 
+            props => chroma(props.background).luminance() >= 0.7 ? "black" : "white", 
+        background: "rgba(255, 255, 255, 0.3)",
+        position: "absolute",
+        border: "none",
+        right: "0",
+        bottom: "0",
+        width: "60px",
+        height: "30px",
+        textAlign: "center",
+        lineHeight: "30px",
+        textTransform: "uppercase"
+    },
+    copyButton:{
+        color: 
+            props => chroma(props.background).luminance() >= 0.7 ? "black" : "white", 
+        width: "100px",
+        height: "30px",
+        position: "absloute",
+        display: "inline-block",
+        top: "50%",
+        left: "50%",
+        marginLeft: "80px",
+        marginTop: "60px",
+        textAlign: "center",
+        outline: "none",
+        backgroundColor: "(255,255,255,0.3)",
+        fontSize: "1rem",
+        lineHeight: "30px",
+        textTransform: "uppercase",
+        border: "none",
+        cursor: "pointer",
+        textDecoration: "none",
+        opacity: 0
+    }
+}
 class ColorBox extends Component{
     constructor(props){
         super(props);
@@ -21,24 +75,22 @@ class ColorBox extends Component{
         alert(`color ${this.props.background} is copied`)
     }
     render() {
-        const {name, background, moreUrl, showLink} = this.props;
+        const {name, background, moreUrl, showLink, classes} = this.props;
         const {copied} = this.state;
-        const isDarkColor = chroma(background).luminance() <= 0.08;
-        const isLightColor = chroma(background).luminance() >= 0.08;
         return (
             <CopyToClipboard text={background} onCopy={this.changeCopyState}>
-             <div className='ColorBox' style={{background}}>
+             <div className={classes.colorBox} style={{background}}>
                 <div style={{background}} className={`copy-overlay ${copied && "show"}`}/>
                 <div className='copy-container'>
                     <div className='box-content'>
-                        <span className={isDarkColor && "light-text"}>{name}</span>
+                        <span className={classes.colorName}>{name}</span>
                     </div>
-                    <button className={`copy-button ${isLightColor && "dark-text"}`}>Copy</button>
+                    <button className={classes.copyButton}>Copy</button>
                 </div>
                 {/* The stopPropagation() method of the Event interface prevents further propagation of the current event in the capturing and bubbling phases. It does not, however, prevent any default behaviors from occurring; for instance, clicks on links are still processed. */}
                 {showLink && (
                     <Link to={moreUrl} onClick={e => e.stopPropagation()}>
-                        <span className={`see-more ${isLightColor && "dark-text"}`}>More</span>
+                        <span className={classes.seeMore}>More</span>
                     </Link>
                 )}
              </div>
@@ -47,4 +99,4 @@ class ColorBox extends Component{
     }
 }
 
-export default ColorBox;
+export default withStyles(styles)(ColorBox);
