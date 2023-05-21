@@ -47,7 +47,7 @@ class SingleColorPalette extends Component{
                 name={color.name}
                 background={color[format]}
                 // this is for the more link to not to display in the single color palette page
-                showLink={false}
+                showingFullPalette={false}
             />
         ))
         return (
