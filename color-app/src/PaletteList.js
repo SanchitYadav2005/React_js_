@@ -3,37 +3,10 @@ import MiniPalette from './MiniPalette';
 // import { Link } from 'react-router-dom';
 
 // This is a higher-order function that returns a higher-order component used to wrap React components to add styles using the theme. We use this to make themed styles easier to work with.
+import styles from './styles/PaletteListStyles';
 import { withStyles } from '@material-ui/styles';
 // like this
-const styles = {
-    root:{
-        backgroundColor: "blue",
-        height: "100%",
-        display: "flex",
-        alignItems: "flex-start",
-        justifyContent: "center"
-    },
-    container:{
-        width: "50%",
-        display: "flex",
-        alignItems: "flex-start",
-        flexDirection: "column",
-        flexWarp: "warp"
-    },
-    nav:{
-        display: "flex",
-        width: "100%",
-        justifyContent: "space-between",
-        color: "white"
-    },
-    palettes:{
-        boxSizing: "border-box",
-        width: "100%",
-        display: "grid",
-        gridTemplateColumns: "repeat(3,30%)",
-        gridGap: "5%"
-    }
-}
+
 
 class PaletteList extends Component {
     goToPalette(id) {

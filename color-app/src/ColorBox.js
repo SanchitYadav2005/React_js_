@@ -1,75 +1,12 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-// import './ColorBox.css';
+import styles from './styles/ColorBoxStyles';
 // this is a component that we can use to make copy to clip board functionality.
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-import chroma from 'chroma-js';
+
 import { withStyles } from '@material-ui/styles';
 
-const styles ={
-    colorBox: {
-        width: "20%",
-        height: "40%",
-        margin: "0 auto",
-        display: "inline-block",
-        position: "relative",
-        cursor: "pointer",
-        "&:hover button":{
-            opacity: 1
-        }
-    },
-    colorName: {
-        color: props =>
-            chroma(props.background).luminance() <= 0.08 ? "white" : "black"
-    },
-    seeMore:{
-        color: 
-            props => chroma(props.background).luminance() >= 0.7 ? "black" : "white", 
-        background: "rgba(255, 255, 255, 0.3)",
-        position: "absolute",
-        border: "none",
-        right: "0",
-        bottom: "0",
-        width: "60px",
-        height: "30px",
-        textAlign: "center",
-        lineHeight: "30px",
-        textTransform: "uppercase"
-    },
-    copyButton:{
-        color: 
-            props => chroma(props.background).luminance() <= 0.7 ? "black" : "white", 
-        width: "100px",
-        height: "30px",
-        position: "absloute",
-        display: "inline-block",
-        top: "50%",
-        left: "50%",
-        marginLeft: "80px",
-        marginTop: "100px",
-        textAlign: "center",
-        outline: "none",
-        backgroundColor: "(255,255,255,0.3)",
-        fontSize: "1rem",
-        lineHeight: "30px",
-        textTransform: "uppercase",
-        border: "none",
-        cursor: "pointer",
-        textDecoration: "none",
-        opacity: 0
-    },
-    boxContent:{
-        position: "absolute",
-        width: "100%",
-        left: "0px",
-        bottom: "0px",
-        padding: "10px",
-        color: "black",
-        letterSpacing: "1px",
-        textTransform: "uppercase",
-        fontSize: "12px"
-    }
-}
+
 class ColorBox extends Component{
     constructor(props){
         super(props);
