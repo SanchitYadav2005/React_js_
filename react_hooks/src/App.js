@@ -3,6 +3,7 @@ import CounterHooks from './CounterHooks';
 import Toggler from './Toggler';
 import SimpleFormHooks from './SimpleFormHooks';
 import Clicker from './Clicker';
+import SwMovies from './SwMovies';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Toggler/>
       <SimpleFormHooks/>
       <Clicker/> */}
+      <SwMovies/>
     </div>
   );
 }
