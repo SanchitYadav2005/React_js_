@@ -2,6 +2,7 @@ import './App.css';
 import CounterHooks from './CounterHooks';
 import Toggler from './Toggler';
 import SimpleFormHooks from './SimpleFormHooks';
+import Clicker from './Clicker';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <CounterHooks/>
       <Toggler/>
       <SimpleFormHooks/>
+      <Clicker/>
     </div>
   );
 }
