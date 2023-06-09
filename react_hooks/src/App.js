@@ -7,10 +7,10 @@ import Clicker from './Clicker';
 function App() {
   return (
     <div className="App">
-      <CounterHooks/>
+      {/* <CounterHooks/>
       <Toggler/>
       <SimpleFormHooks/>
-      <Clicker/>
+      <Clicker/> */}
     </div>
   );
 }
