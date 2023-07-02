@@ -5,6 +5,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Grid from '@mui/material/Grid';
 import Todolist from './Todolist';
+import TodoForm from './TodoForm';
 function TodoApp(){
     const initialTodos = [
         {id: 1, task: "Clean fish tank", completed: false},
@@ -27,6 +28,7 @@ function TodoApp(){
                     <Typography color="inherit">Todos with hooks</Typography>
                 </Toolbar>
             </AppBar>
+            <TodoForm/>
             <Todolist todos={todos}/>
         </Paper>
     )
