@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import AppBar from '@mui/material/AppBar';
@@ -7,34 +7,38 @@ import Grid from '@mui/material/Grid';
 import Todolist from './Todolist';
 import TodoForm from './TodoForm';
 
-function TodoApp(){
+function TodoApp() {
     const initialTodos = [
-        {id: 1, task: "Clean fish tank", completed: false},
-        {id: 2, task: "Wash car", completed: true},
-        {id: 3, task: "Grow Beard", completed: false}
+        { id: 1, task: "Clean fish tank", completed: false },
+        { id: 2, task: "Wash car", completed: true },
+        { id: 3, task: "Grow Beard", completed: false }
     ]
     const [todos, setTodos] = useState(initialTodos);
     // getting it using the todo form where use input the value and pass it to addTodo there and we are use it here to set the task in our initial todos.
-    const addTodo = newTodoText =>{
-        setTodos([...todos, {id: 4, task: newTodoText, completed: false}])
+    const addTodo = newTodoText => {
+        setTodos([...todos, { id: 4, task: newTodoText, completed: false }])
     }
-    return(
-        <Paper 
+    return (
+        <Paper
             style={{
-                padding:0,
+                padding: 0,
                 margin: 0,
                 height: "100vh",
                 backgroundColor: "#fafafa"
             }}
             elevation={0}
         >
-            <AppBar color='primary' position='static' style={{height: "64px"}}>
+            <AppBar color='primary' position='static' style={{ height: "64px" }}>
                 <Toolbar>
                     <Typography color="inherit">Todos with hooks</Typography>
                 </Toolbar>
             </AppBar>
-            <TodoForm addTodo={addTodo}/>
-            <Todolist todos={todos}/>
+            <Grid container justifyContent={'center'} style={{ marginTop: "1rem" }}>
+                <Grid item xs={11} md={8} lg={4}>
+                    <TodoForm addTodo={addTodo} />
+                    <Todolist todos={todos} />
+                </Grid>
+            </Grid>
         </Paper>
     )
 }
