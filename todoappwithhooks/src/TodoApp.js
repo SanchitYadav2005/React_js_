@@ -9,11 +9,7 @@ import TodoForm from './TodoForm';
 import { v4 as uuidv4 } from 'uuid';
 
 function TodoApp() {
-    const initialTodos = [
-        { id: 1, task: "Clean fish tank", completed: false },
-        { id: 2, task: "Wash car", completed: true },
-        { id: 3, task: "Grow Beard", completed: false }
-    ]
+    const initialTodos = []
     const [todos, setTodos] = useState(initialTodos);
     // getting it using the todo form where use input the value and pass it to addTodo there and we are use it here to set the task in our initial todos.
     const addTodo = newTodoText => {
