@@ -6,6 +6,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Grid from '@mui/material/Grid';
 import Todolist from './Todolist';
 import TodoForm from './TodoForm';
+import { v4 as uuidv4 } from 'uuid';
 
 function TodoApp() {
     const initialTodos = [
@@ -16,7 +17,7 @@ function TodoApp() {
     const [todos, setTodos] = useState(initialTodos);
     // getting it using the todo form where use input the value and pass it to addTodo there and we are use it here to set the task in our initial todos.
     const addTodo = newTodoText => {
-        setTodos([...todos, { id: 4, task: newTodoText, completed: false }])
+        setTodos([...todos, { id: uuidv4(), task: newTodoText, completed: false }])
     }
 
     const removeTodo = todoId => {
