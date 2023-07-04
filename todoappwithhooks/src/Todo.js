@@ -1,25 +1,31 @@
 import React from "react";
-import ListItem from '@mui/material/ListItem';  
+import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import useToggle from "./hooks/useToggle";
 
-function Todo({task, completed, id, removeTodo, toggleTodo}){
-    return(
+function Todo({ task, completed, id, removeTodo, toggleTodo }) {
+    const [isEditing, toggle] = useToggle();
+    return (
         <ListItem>
-            <Checkbox tabIndex={-1} checked={completed} onClick={()=> toggleTodo(id)}/>
-            <ListItemText style={{textDecoration: completed ? "line-through" : "none"}}>{task}</ListItemText>
-            <ListItemSecondaryAction>
-                <IconButton aria-label="Delete" onClick={ ()=> removeTodo(id)}>
-                    <DeleteIcon />
-                </IconButton>
-                <IconButton aria-label="Edit">
-                    <EditIcon/>
-                </IconButton>
-            </ListItemSecondaryAction>
+            {isEditing ? <h1>editing</h1> :
+                <>
+                    <Checkbox tabIndex={-1} checked={completed} onClick={() => toggleTodo(id)} />
+                    <ListItemText style={{ textDecoration: completed ? "line-through" : "none" }}>{task}</ListItemText>
+                    <ListItemSecondaryAction>
+                        <IconButton aria-label="Delete" onClick={() => removeTodo(id)}>
+                            <DeleteIcon />
+                        </IconButton>
+                        <IconButton aria-label="Edit" onClick={toggle}>
+                            <EditIcon />
+                        </IconButton>
+                    </ListItemSecondaryAction>
+                </>
+            }
         </ListItem>
     )
 }
