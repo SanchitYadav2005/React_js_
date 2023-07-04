@@ -12,7 +12,7 @@ import EditForm from "./EditForm";
 function Todo({ task, completed, id, removeTodo, toggleTodo, editTodo }) {
     const [isEditing, toggle] = useToggle();
     return (
-        <ListItem>
+        <ListItem style={{height: "64px"}}>
             {isEditing ? <EditForm editTodo={editTodo} id={id} task={task} toggleEditForm={toggle}/> :
                 <>
                     <Checkbox tabIndex={-1} checked={completed} onClick={() => toggleTodo(id)} />
