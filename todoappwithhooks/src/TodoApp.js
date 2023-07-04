@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import AppBar from '@mui/material/AppBar';
@@ -9,8 +9,12 @@ import TodoForm from './TodoForm';
 import { v4 as uuidv4 } from 'uuid';
 
 function TodoApp() {
-    const initialTodos = []
+    const initialTodos = JSON.parse(window.localStorage.getItem('todos')||"[]")
     const [todos, setTodos] = useState(initialTodos);
+
+    useEffect(()=>{
+        window.localStorage.setItem('todos', JSON.stringify(todos))
+    }, [todos])
     // getting it using the todo form where use input the value and pass it to addTodo there and we are use it here to set the task in our initial todos.
     const addTodo = newTodoText => {
         setTodos([...todos, { id: uuidv4(), task: newTodoText, completed: false }])
