@@ -6,20 +6,22 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import Switch from '@mui/material/Switch';
-import { withStyles } from '@mui/material';
+import { withStyles } from "@mui/styles"
+import styles from './styles/NavBarStyles';
 
 
 
 class Navbar extends Component{
     render(){
+        const {classes} = this.props;
         return (
-            <div>
+            <div className={classes.root}>
                 <AppBar position='static' color='primary'>
                     <ToolBar>
-                        <IconButton>
+                        <IconButton className={classes.menuButton}>
                             <span>spain</span>
                         </IconButton>
-                        <Typography variant='h6' color="inherit">
+                        <Typography className={classes.title} variant='h6' color="inherit">
                             App title
                         </Typography>
                         <Switch/>
@@ -36,4 +38,4 @@ class Navbar extends Component{
     }
 }
 
-export default withStyles()(Navbar);
+export default withStyles(styles)(Navbar);
