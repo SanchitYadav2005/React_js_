@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import Switch from '@mui/material/Switch';
+import { withStyles } from '@mui/material';
 
 
 
@@ -35,4 +36,4 @@ class Navbar extends Component{
     }
 }
 
-export default Navbar;
+export default withStyles()(Navbar);
