@@ -30,6 +30,7 @@ class Navbar extends Component{
                             <div >
                                 <SearchIcon/>
                             </div>
+                            <InputBase placeholder='search'/>
                         </div>
                     </ToolBar>
                 </AppBar>
