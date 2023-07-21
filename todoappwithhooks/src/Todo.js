@@ -12,7 +12,7 @@ import { TodoContext } from "./context/todo.context";
 
 function Todo({ task, completed, id}) {
     const [isEditing, toggle] = useToggle();
-    const {removeTodo, toggleTodo, editTodo} = useContext(TodoContext)
+    const {removeTodo, toggleTodo} = useContext(TodoContext)
     return (
         <ListItem style={{height: "64px"}}>
             {isEditing ? <EditForm id={id} task={task} toggleEditForm={toggle}/> :
