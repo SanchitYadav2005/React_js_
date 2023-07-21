@@ -1,10 +1,13 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import useInputState from './hooks/useInputState';
+import { TodoContext } from './context/todo.context';
+
 
 // we can also grab the props like this.
-function TodoForm({addTodo}) {
+function TodoForm() {
+    const {addTodo} = useContext(TodoContext)
     // we are passing all these values to our costum hook 
     // we are getting the value from our text field.
     const [value, handleChange, reset] = useInputState("")

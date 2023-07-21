@@ -7,15 +7,16 @@ import Grid from '@mui/material/Grid';
 import Todolist from './Todolist';
 import TodoForm from './TodoForm';
 import useTodoState from './hooks/useTodoState';
+import { TodoProvider } from './context/todo.context';
 
 function TodoApp() {
-    const initialTodos = JSON.parse(window.localStorage.getItem('todos')||"[]")
-    const {todos, editTodo, removeTodo, addTodo, toggleTodo} = useTodoState(initialTodos)
+    const initialTodos = JSON.parse(window.localStorage.getItem('todos') || "[]")
+    const { todos, editTodo, removeTodo, addTodo, toggleTodo } = useTodoState(initialTodos)
 
-    useEffect(()=>{
+    useEffect(() => {
         window.localStorage.setItem('todos', JSON.stringify(todos))
     }, [todos])
-   
+
     return (
         <Paper
             style={{
@@ -33,13 +34,10 @@ function TodoApp() {
             </AppBar>
             <Grid container justifyContent={'center'} style={{ marginTop: "1rem" }}>
                 <Grid item xs={11} md={8} lg={4}>
-                    <TodoForm addTodo={addTodo} />
-                    <Todolist 
-                        todos={todos} 
-                        removeTodo={removeTodo} 
-                        toggleTodo={toggleTodo}
-                        editTodo={editTodo}
-                    />
+                    <TodoProvider>
+                        <TodoForm/>
+                        <Todolist/>
+                    </TodoProvider>
                 </Grid>
             </Grid>
         </Paper>
