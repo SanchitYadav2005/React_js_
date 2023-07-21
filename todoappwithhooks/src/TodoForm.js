@@ -7,7 +7,7 @@ import { TodoContext } from './context/todo.context';
 
 // we can also grab the props like this.
 function TodoForm() {
-    const {addTodo} = useContext(TodoContext)
+    const {dispatch} = useContext(TodoContext)
     // we are passing all these values to our costum hook 
     // we are getting the value from our text field.
     const [value, handleChange, reset] = useInputState("")
@@ -17,7 +17,7 @@ function TodoForm() {
                 onSubmit={e=>{
                     // pereventing the page reloding
                     e.preventDefault()
-                    addTodo(value)
+                    dispatch({type: "ADD", task: value})
                     reset();
                 }}
             >
