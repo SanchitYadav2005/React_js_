@@ -8,11 +8,11 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import useToggle from "./hooks/useToggle";
 import EditForm from "./EditForm";
-import { TodoContext } from "./context/todo.context";
+import { DispatchContext } from "./context/todo.context";
 
 function Todo({ task, completed, id}) {
     const [isEditing, toggle] = useToggle();
-    const {dispatch} = useContext(TodoContext)
+    const {dispatch} = useContext(DispatchContext)
     return (
         <ListItem style={{height: "64px"}}>
             {isEditing ? <EditForm id={id} task={task} toggleEditForm={toggle}/> :

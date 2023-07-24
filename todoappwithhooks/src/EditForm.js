@@ -1,11 +1,11 @@
 import { TextField } from '@mui/material';
 import React, { useContext } from 'react';
 import useInputState from './hooks/useInputState';
-import { TodoContext } from './context/todo.context';
+import { DispatchContext } from './context/todo.context';
 
 function EditForm({id, task, toggleEditForm}){
     const [value, handleChange, reset] = useInputState(task);
-    const {dispatch} = useContext(TodoContext)
+    const {dispatch} = useContext(DispatchContext)
     return(
         <form
             onSubmit={(e)=>{
