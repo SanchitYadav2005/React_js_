@@ -5,7 +5,7 @@ import { DispatchContext } from './context/todo.context';
 
 function EditForm({id, task, toggleEditForm}){
     const [value, handleChange, reset] = useInputState(task);
-    const {dispatch} = useContext(DispatchContext)
+    const dispatch = useContext(DispatchContext)
     return(
         <form
             onSubmit={(e)=>{
